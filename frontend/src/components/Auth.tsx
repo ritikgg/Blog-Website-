@@ -11,8 +11,7 @@ export const Auth = ({ type }: { type: "signup" | "signin" }) => {
         name: "",
         username: "",
         password: ""
-    });
-    
+    })
     async function sendRequest() {
         try {
             const response = await axios.post(`${BACKEND_URL}/api/v1/user/${type === "signup" ? "signup" : "signin"}`, postInputs);
@@ -40,21 +39,21 @@ export const Auth = ({ type }: { type: "signup" | "signin" }) => {
                 </div>
                 <div className="pt-8">
                     {type === "signup" ? <LabelledInputType label="Name" placeholder="Ritik Goswami..." onChange={(e) => {
-                        setPostInputs(c => ({
+                        setPostInputs(postInputs => ({
                             ...postInputs,
                             name: e.target.value
                         }))
                     }} /> : null}
 
                     <LabelledInputType label="Email" placeholder="ritik@gmail.com" onChange={(e) => {
-                        setPostInputs(c => ({
+                        setPostInputs(postInputs => ({
                             ...postInputs,
                             username: e.target.value
                         }))
                     }} />
 
                     <LabelledInputType label="Password" type={"password"} placeholder="password" onChange={(e) => {
-                        setPostInputs(c => ({
+                        setPostInputs(postInputs => ({
                             ...postInputs,
                             password: e.target.value
                         }))
